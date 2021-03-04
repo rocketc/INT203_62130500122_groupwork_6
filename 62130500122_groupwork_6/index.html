@@ -1,0 +1,96 @@
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Vue Js - HelloWorld App</title>
+
+  <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+  <!-- Using via Google Web Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <!-- https://tailwindcss.com/docs/installation -->
+  <!-- Using Tailwind via CDN -->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+
+  <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+  <!-- Vue CDN -->
+  <script src="https://unpkg.com/vue@next"></script>
+
+  <link href='https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css'>
+
+  <script src='https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js'></script>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+
+  <body>
+    <div id="app" class="h-screen bg-gray-300">
+        <div class="container flex justify-center py-20">
+            <div class="p-3 bg-white rounded-xl max-w-prose hover:shadow">
+                <div class="flex justify-between w-full"> <img v-bind:src="images" width="155"  class="rounded-lg h-40">
+                    <div class="ml-2">
+                        <div class="p-3 pr-28">
+                            <h3 class="text-2xl">{{name}}</h3> 
+                            <span>{{job}}</span>
+                        </div> 
+                    </div>
+                </div>
+                <h1> Account</h2>
+                <hr class="mt-2 mb-5">
+                <form @submit.prevent="checkForm" >
+                    <div class="flex justify-between items-center p-3 bg-gray-200 rounded-lg grid grid-cols-2 gap-4">
+                        <p v-if="errors" class="text-red-500">
+                            <b>Please correct the following error(s):</b>
+                            <ul>
+                                <li v-for="error in errors" class="text-red-500">{{ error }}</li> 
+                            </ul>
+                        </p>
+                        <div class="flex flex-col">
+                            <label for="username" class="text-sm leading-7 text-gray-600">Username</label>
+                            <input type="text" id="username" v-model="formdata.username" name="username" class="bg-gray-100 rounded px-4 py-2 mb-4">
+                        </div>
+                        <div class="flex flex-col">
+                            <label for="email" class="text-sm leading-7 text-gray-600">Email</label>
+                            <input type="text" id="lastname" v-model="formdata.email" name="lastname" class="bg-gray-100 rounded px-4 py-2 mb-4">
+                        </div>
+                        <div class="flex flex-col">
+                            <label for="password" class="text-sm leading-7 text-gray-600">Password</label>
+                            <input type="text" id="lastname" v-model="formdata.password" name="lastname" class="bg-gray-100 rounded px-4 py-2 mb-4">
+                        </div>
+                        <div class="flex flex-col">
+                            <label for="firstname" class="text-sm leading-7 text-gray-600">First Name</label>
+                            <input type="text" id="lastname" v-model="formdata.firstname" name="lastname" class="bg-gray-100 rounded px-4 py-2 mb-4">
+                        </div>
+                        <div class="flex flex-col">
+                            <label for="lastname" class="text-sm leading-7 text-gray-600">Last Name</label>
+                            <input type="text" id="lastname" v-model="formdata.lastname" name="lastname" class="bg-gray-100 rounded px-4 py-2 mb-4">
+                        </div>
+                        <div class="flex flex-col">
+                            <label for="title" class="text-sm leading-7 text-gray-600">Title</label>
+                            <input type="text" id="lastname" v-model="formdata.title" name="lastname" class="bg-gray-100 rounded px-4 py-2 mb-4">
+                        </div>
+                        <div class="flex flex-col col-span-2">
+                            <label for="languageselect"class="text-sm leading-7 text-gray-600">Language</label>
+                            <select id="languageselect" v-model="formdata.languageselect" name="languageselect" class="bg-gray-100 rounded px-4 py-2 mb-4">
+                            <option v-for="language in language_lists" :value="language.lang_id">
+                                {{language.lang_name}}
+                            </option>
+                        </div>
+                        <div >
+                            <input type="submit" value="Submit" class="px-8 py-2 text-white bg-yellow-100 rounded-lg hover:bg-yellow-300 focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2">
+                        </div>
+                    
+                            <!-- <div class="mr-3"> <span class="text-gray-400 block">{{topic1}}</span> <span class="font-bold text-black text-xl">{{article}}</span> </div> -->
+                            <!-- <div class="mr-3"> <span class="text-gray-400 block">{{topic2}}</span> <span class="font-bold text-black text-xl">{{follower}}</span> </div> -->
+                            <!-- <div> <span class="text-gray-400 block">{{topic3}}</span><span class="font-bold text-black text-xl">{{rating}}</span> </div> -->
+                    </div>
+                </form>
+                <!-- <div class="flex justify-between items-center mt-2 gap-2"> <button class="w-full h-12 rounded-md border-2 text-md hover:shadow hover:bg-red-700 hover:border-red-700 hover:text-white ">Chat</button> <button class="w-full h-12 rounded-md bg-blue-700 text-white text-md hover:shadow hover:bg-blue-800">Chat</button> </div> -->
+            </div>
+        </div>
+    </div>
+  
+    <!-- my main.js -->
+    <script src="./main.js"></script>
+  </body>
+
+</head>
